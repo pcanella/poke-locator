@@ -63,7 +63,8 @@ function findPokemon() {
         }
 
     }).then(function(result) {
-        var returned = JSON.parse(result);
+        console.log(result);
+        var returned = JSON.parse(result.response);
         // alertBox.textContent = result;
         // addClass(alertBox, 'show');
         // addClass(alertBox, 'success');

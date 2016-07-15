@@ -39,7 +39,7 @@ module.exports = function IndexModel() {
             var t = P.getPokemonByName(name);
 
             if (t.then)
-                .then(function(response) {
+                t.then(function(response) {
                     cb(false, response);
                 })
                 .catch(function(error) {
