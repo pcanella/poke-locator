@@ -35,19 +35,20 @@ module.exports = function IndexModel() {
         },
 
         validatePokemon: function(name, cb) {
-            debugger;
             var t = P.getPokemonByName(name);
-
-            if (t.then)
+            if (t.then) {
                 t.then(function(response) {
-                    cb(false, response);
-                })
-                .catch(function(error) {
-                    console.log('There was an ERROR: ', error);
-                    var message = 'Your Pokemon name is not valid. Please try again.';
-                    error = true;
-                    cb(true, message);
-                });
+                        cb(false, response);
+                    })
+                    .catch(function(error) {
+                        console.log('There was an ERROR: ', error);
+                        var message = 'Your Pokemon name is not valid. Please try again.';
+                        error = true;
+                        cb(true, message);
+                    });
+            } else {
+                cb(true, t);
+            }
         },
 
         find: function() {}

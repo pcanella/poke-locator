@@ -20,9 +20,8 @@ module.exports = function(router) {
         });
     });
 
-    router.get('/find', function(req, res) {
-
-        model.getByPokemonName(req.query.pokemon_name, function(err, response) {
+    router.post('/find', function(req, res) {
+        model.getByPokemonName(req.body.pokemon_name, function(err, response) {
             var parsedResponse = JSON.parse(response);
 
             if (parsedResponse && parsedResponse.data && parsedResponse.data.length > 0) {
@@ -34,14 +33,16 @@ module.exports = function(router) {
                     }
                 });
                 var returnedObj = {
-                    response: a
+                    response: a,
+                    status: 'OK'
                 };
-                var stringified = JSON.stringify(returnedObj)
+                var stringified = JSON.stringify(returnedObj);
+                res.writeHead(200, {
+                    'Content-Type': 'application/json'
+                });
                 res.write(stringified);
+                res.end();
             }
-            res.end();
-
-
         });
     });
 
