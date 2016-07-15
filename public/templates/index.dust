@@ -1,0 +1,19 @@
+{>"layouts/master" /} 
+
+{<body}
+ <h1>Welcome to Poke-Locator!</h1>
+
+    <h3>What Are You Looking to Do?</h3>
+    <div class="alert"></div>
+    <h4 class="submit-pokemon"><a href="">Submit Pokemon Locations</a></h4>
+    <div class="poke-submit">
+        <input type="text" placeholder="Submit A Pokemon Location" name="pokemon_location_submit"/>
+        <input type="text" placeholder="Submit A Pokemon Name" name="pokemon_name_submit"/>
+        <input type="button" class="submit_pokemon" value="Submit Pokemon Find!" />
+    </div>
+    <h4 class="find-pokemon"><a href="">Find Possible Pokemon Locations</a></h4>
+    <div class="poke-find">
+        <input type="text" placeholder="Find A Pokemon!" name="find_pokemon" />
+        <input type="button" class="find_pokemon" value="Find Pokemon"/>
+    </div>
+    {/body}
